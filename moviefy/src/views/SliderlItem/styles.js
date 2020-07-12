@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import {
   heightScreen,
   widthScreen,
-  itemBackgroundColor,
   blackColor,
 } from '../../helpers/GlobalStyles';
 
@@ -12,7 +11,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     width: widthScreen / 3,
-    height: 'auto',
     borderRadius: 10,
     marginHorizontal: 10,
     backgroundColor: blackColor,
@@ -30,23 +28,23 @@ export default StyleSheet.create({
   text: {
     zIndex: 2,
     display: 'flex',
+    height: 'auto',
     flexDirection: 'column',
     alignItems: 'flex-start',
     marginHorizontal: '5%',
-    //paddingBottom: '10%',
+    marginBottom: '1%',
   },
 
   imageContainer: {
     flex: 1,
-    //height: heightScreen / 4,
     width: '100%',
   },
 
   image: {
-    //flex: 1,
     resizeMode: 'cover',
     height: heightScreen / 3,
     borderRadius: 5,
+    marginBottom: '-1%',
   },
 
   title: {
