@@ -1,16 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Text, Image, View } from 'react-native';
 import styles from './styles';
-// import { LinearGradient } from 'expo-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 
 const SliderItem = ({ image, title, subtitle }) => {
   return (
     <TouchableOpacity style={styles.item}>
-      {/* <LinearGradient
+      <LinearGradient
         colors={['transparent', 'rgba(0,0,0,1)']}
         style={styles.gradient}
-        start={[0, 0.8]}
-        end={[0, 1]}></LinearGradient> */}
+        start={{ x: 0, y: 0.8 }}
+        end={{ x: 0, y: 1 }}></LinearGradient>
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: `https://image.tmdb.org/t/p/original${image}` }}

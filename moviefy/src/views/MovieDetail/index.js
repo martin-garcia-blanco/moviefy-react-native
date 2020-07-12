@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, Image } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
-// import { LinearGradient } from 'expo-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 import HorizontalSlider from '../HorizontalSlider';
 import IoniconIcon from 'react-native-vector-icons/Ionicons';
 IoniconIcon.loadFont();
 import retrieveMovieDetail from '../../services/retrieve-movie-detail';
-import { itemBackgroundColor } from '../../helpers/GlobalStyles';
 
 const MovieDetail = ({ navigation, route }) => {
   const {
@@ -27,11 +26,11 @@ const MovieDetail = ({ navigation, route }) => {
       {movie ? (
         <>
           <View style={styles.imageContainer}>
-            {/* <LinearGradient
+            <LinearGradient
               colors={['transparent', 'rgba(0,0,0,1)']}
               style={styles.gradient}
-              start={[0, 0.6]}
-              end={[0, 1]}></LinearGradient> */}
+              start={{ x: 0, y: 0.6 }}
+              end={{ x: 0, y: 1 }}></LinearGradient>
 
             <Image
               source={{
