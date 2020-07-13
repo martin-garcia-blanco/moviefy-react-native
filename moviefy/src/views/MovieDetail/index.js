@@ -7,6 +7,7 @@ import HorizontalSlider from '../HorizontalSlider';
 import IoniconIcon from 'react-native-vector-icons/Ionicons';
 IoniconIcon.loadFont();
 import retrieveMovieDetail from '../../services/retrieve-movie-detail';
+import retrieveRecomendatedMovies from '../../services/retrieve-recomendated-movies';
 
 const MovieDetail = ({ navigation, route }) => {
   const {
@@ -14,12 +15,14 @@ const MovieDetail = ({ navigation, route }) => {
   } = route;
 
   const [movie, setMovie] = useState();
+  const [similarMovies, setSimilarMovies] = useState([]);
 
   useEffect(() => {
     (async () => {
       setMovie(await retrieveMovieDetail(movieId));
+      setSimilarMovies(await retrieveRecomendatedMovies(movieId));
     })();
-  }, [movieId, setMovie]);
+  }, [movieId, setMovie, setSimilarMovies]);
 
   return (
     <ScrollView style={styles.rootView}>
@@ -90,11 +93,21 @@ const MovieDetail = ({ navigation, route }) => {
           <View style={styles.subtitle}>
             <Text style={styles.subtitleText}>Cast</Text>
           </View>
-          <HorizontalSlider sliderType="cast" navigation={navigation} />
+          <HorizontalSlider
+            sliderType="cast"
+            navigation={navigation}
+            list={movie.credits.cast}
+          />
           <View style={styles.subtitle}>
             <Text style={styles.subtitleText}>Similar content</Text>
           </View>
-          <HorizontalSlider sliderType="movies" navigation={navigation} />
+          {similarMovies && (
+            <HorizontalSlider
+              sliderType="movies"
+              navigation={navigation}
+              list={similarMovies}
+            />
+          )}
         </>
       ) : null}
     </ScrollView>

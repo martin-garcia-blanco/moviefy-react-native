@@ -11,7 +11,6 @@ const retrieveMovieDetail = async (id) => {
 
   movieDetail.backdrop_path = addPhotoUrl(movieDetail.backdrop_path);
   movieDetail.poster_path = addPhotoUrl(movieDetail.poster_path);
-
   const director = directorExtractor(movieDetail);
   if (director) movieDetail.director = director;
   return movieDetail;
