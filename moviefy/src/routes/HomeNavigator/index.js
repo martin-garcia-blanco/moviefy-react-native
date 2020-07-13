@@ -20,7 +20,7 @@ const HomeNavigator = () => {
           headerTintColor: 'white',
           cardStyle: { backgroundColor: blackColor },
         }}>
-        <Stack.Screen name="Home" component={Home} options={{ header: Home }} />
+        <Stack.Screen name="Hom" component={Home} options={{ header: Home }} />
         <Stack.Screen name="MovieDetail" component={MovieDetail} />
         <Stack.Screen name="MovieItem" component={MovieItem} />
         <Stack.Screen name="MovieList" component={MovieList} />
