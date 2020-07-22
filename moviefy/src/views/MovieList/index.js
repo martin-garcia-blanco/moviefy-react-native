@@ -10,10 +10,8 @@ const MovieList = ({ list, navigation }) => {
         <MovieItem
           navigation={navigation}
           key={index}
-          imageUrl={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-          title={movie.title}
           size="medium"
-          id={movie.id}
+          movie={movie}
         />
       ))}
     </View>

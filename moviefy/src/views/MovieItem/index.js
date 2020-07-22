@@ -9,11 +9,11 @@ import {
   heightScreen,
 } from '../../helpers/GlobalStyles';
 
-const MovieItem = ({ title, imageUrl, navigation, size, id }) => {
+const MovieItem = ({ movie, navigation, size }) => {
+  const { poster_path, id, title, vote_average } = movie;
   const [widthContainer, setWidthContainer] = useState();
   const [heightContainer, setHeightContainer] = useState();
   const [titleSize, setTitleSize] = useState();
-  const [ready, setReady] = useState(true);
 
   const setStyles = (size) => {
     switch (size) {
@@ -32,48 +32,44 @@ const MovieItem = ({ title, imageUrl, navigation, size, id }) => {
         setHeightContainer(heightScreen / 1.9);
         setTitleSize(15);
     }
-    setReady(true);
   };
 
   useEffect(() => {
     setStyles(size);
   }, [size]);
 
-  if (ready) {
-    return (
-      <View
-        style={[
-          styles.container,
-          { width: widthContainer, height: heightContainer },
-        ]}>
-        <TouchableOpacity
-          style={styles.imageContainer}
-          onPress={() => navigation.push('MovieDetail', { movieId: id })}>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-        </TouchableOpacity>
-        <View style={styles.textContainer}>
-          <Text style={[styles.text, styles.title, { fontSize: titleSize }]}>
-            {title}
-          </Text>
-          <View style={styles.info}>
-            <View style={styles.rating}>
-              <Icon name="star" size={20} color={starYellow} />
-              <Text style={styles.text}>5.7</Text>
-            </View>
+  return (
+    <View
+      style={[
+        styles.container,
+        { width: widthContainer, height: heightContainer },
+      ]}>
+      <TouchableOpacity
+        style={styles.imageContainer}
+        onPress={() => navigation.push('MovieDetail', { movieId: id })}>
+        <Image
+          source={{ uri: `https://image.tmdb.org/t/p/original${poster_path}` }}
+          style={styles.image}
+        />
+      </TouchableOpacity>
 
-            <Text style={styles.text}>128 min</Text>
-          </View>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Add to List</Text>
-          </TouchableOpacity>
+      <View style={styles.textContainer}>
+        <Text style={[styles.text, styles.title, { fontSize: titleSize }]}>
+          {title.length > 25 ? `${title.substring(0, 25)} ...` : title}
+        </Text>
+        <View style={styles.rating}>
+          <Icon name="star" size={20} color={starYellow} />
+          <Text style={styles.text}>{vote_average}</Text>
         </View>
       </View>
-    );
-  } else {
-    return <View></View>;
-  }
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Add to List</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 };
 
 export default MovieItem;

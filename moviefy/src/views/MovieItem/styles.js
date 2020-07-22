@@ -36,14 +36,9 @@ export default StyleSheet.create({
   textContainer: {
     marginTop: 5,
     paddingHorizontal: '2%',
-  },
-
-  info: {
-    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
   },
 
   text: {
@@ -54,14 +49,19 @@ export default StyleSheet.create({
 
   title: {
     color: 'white',
+    width: '65%',
   },
 
   rating: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '35%',
+  },
+
+  star: {
+    marginRight: '5%',
   },
 
   buttonContainer: {

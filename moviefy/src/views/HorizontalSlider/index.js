@@ -20,10 +20,8 @@ const HorizontalSlider = ({ sliderType, navigation, list }) => {
         return (
           <MovieItem
             size="small"
-            imageUrl={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-            title={item.original_title}
             navigation={navigation}
-            id={item.id}></MovieItem>
+            movie={item}></MovieItem>
         );
     }
   };
