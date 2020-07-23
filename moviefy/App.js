@@ -14,7 +14,7 @@ import { globalStyles, greenColor } from './src/helpers/GlobalStyles';
 import HomeNavigator from './src/routes/HomeNavigator';
 import Search from './src/routes/Search';
 import User from './src/routes/User';
-import Genres from './src/views/Genres';
+import Genres from './src/routes/Genres';
 
 const Tab = createBottomTabNavigator();
 

@@ -73,7 +73,7 @@ const MovieDetail = ({ navigation, route }) => {
                   color="yellow"
                   style={styles.ratingStar}
                 />
-                <Text style={styles.ratingText}>8.3</Text>
+                <Text style={styles.ratingText}>{movie.vote_average}</Text>
               </View>
             </View>
             <Text style={styles.overview}>{movie.overview}</Text>

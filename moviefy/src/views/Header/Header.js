@@ -2,10 +2,10 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import styles from './styles';
 
-const AppName = () => (
+const Header = ({ text }) => (
   <View style={styles.wrapper}>
-    <Text style={styles.text}>Moviefy</Text>
+    <Text style={styles.text}>{text}</Text>
   </View>
 );
 
-export default AppName;
+export default Header;

@@ -1,10 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import styles from './styles';
 
-export const GenreItem = () => {
+export const GenreItem = ({ genre }) => {
   return (
-    <View>
-      <Text>Im a GenreItem</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.wrapper}
+      onPress={() => console.log(genre.id)}>
+      <Image resizeMode="contain" style={styles.image} source={genre.icon} />
+      <Text style={styles.text}>{genre.name}</Text>
+    </TouchableOpacity>
   );
 };
+
+export default GenreItem;
