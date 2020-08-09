@@ -4,7 +4,8 @@ export const NETWORKS = [
   { name: 'Amazon', id: 1024 },
 ];
 
-export const PHOTO_BASE_URL = 'https://image.tmdb.org/t/p/original/';
+export const PHOTO_BASE_URL_LOW_QUALITY = 'https://image.tmdb.org/t/p/w300/';
+export const PHOTO_BASE_URL_HIGH_QUALITY = 'https://image.tmdb.org/t/p/w500/';
 
 export const genres = [
   {

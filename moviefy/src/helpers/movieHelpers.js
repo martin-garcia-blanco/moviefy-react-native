@@ -1,7 +1,12 @@
-import { PHOTO_BASE_URL } from './constants';
+import {
+  PHOTO_BASE_URL_LOW_QUALITY,
+  PHOTO_BASE_URL_HIGH_QUALITY,
+} from './constants';
 
-export function addPhotoUrl(photo) {
-  return `${PHOTO_BASE_URL}${photo}`;
+export function addPhotoUrl(photo, quality) {
+  return quality === 'low'
+    ? `${PHOTO_BASE_URL_LOW_QUALITY}${photo}`
+    : `${PHOTO_BASE_URL_HIGH_QUALITY}${photo}`;
 }
 
 export function directorExtractor(movie) {

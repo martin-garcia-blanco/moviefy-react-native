@@ -47,10 +47,7 @@ const MovieItem = ({ movie, navigation, size }) => {
       <TouchableOpacity
         style={styles.imageContainer}
         onPress={() => navigation.push('MovieDetail', { movieId: id })}>
-        <Image
-          source={{ uri: `https://image.tmdb.org/t/p/original${poster_path}` }}
-          style={styles.image}
-        />
+        <Image source={{ uri: poster_path }} style={styles.image} />
       </TouchableOpacity>
 
       <View style={styles.textContainer}>
