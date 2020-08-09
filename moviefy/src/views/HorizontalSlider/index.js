@@ -1,8 +1,7 @@
 import React from 'react';
-import { ScrollView, Text, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import SliderlItem from '../SliderlItem';
-import styles from './styles';
 import MovieItem from '../MovieItem';
 
 const HorizontalSlider = ({ sliderType, navigation, list }) => {

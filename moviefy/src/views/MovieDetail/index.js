@@ -80,7 +80,15 @@ const MovieDetail = ({ navigation, route }) => {
           </View>
           <View style={styles.genres}>
             {movie.genres.map((genre) => (
-              <TouchableOpacity key={genre.id} style={styles.genreTouchable}>
+              <TouchableOpacity
+                key={genre.id}
+                style={styles.genreTouchable}
+                onPress={() =>
+                  navigation.push('GenreMovies', {
+                    genreId: genre.id,
+                    genreName: genre.name,
+                  })
+                }>
                 <Text style={styles.genreText}>{genre.name}</Text>
               </TouchableOpacity>
             ))}
@@ -98,16 +106,19 @@ const MovieDetail = ({ navigation, route }) => {
             navigation={navigation}
             list={movie.credits.cast}
           />
-          <View style={styles.subtitle}>
-            <Text style={styles.subtitleText}>Similar content</Text>
-          </View>
-          {similarMovies && (
-            <HorizontalSlider
-              sliderType="movies"
-              navigation={navigation}
-              list={similarMovies}
-            />
-          )}
+
+          {similarMovies.length ? (
+            <>
+              <View style={styles.subtitle}>
+                <Text style={styles.subtitleText}>Similar content</Text>
+              </View>
+              <HorizontalSlider
+                sliderType="movies"
+                navigation={navigation}
+                list={similarMovies}
+              />
+            </>
+          ) : null}
         </>
       ) : null}
     </ScrollView>

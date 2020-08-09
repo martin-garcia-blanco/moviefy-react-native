@@ -4,5 +4,6 @@ import { blackColor } from '../../helpers/GlobalStyles';
 export default StyleSheet.create({
   wrapper: {
     backgroundColor: blackColor,
+    paddingBottom: 60,
   },
 });

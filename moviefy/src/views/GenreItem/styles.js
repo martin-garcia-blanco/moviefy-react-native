@@ -7,7 +7,7 @@ import {
 
 export default StyleSheet.create({
   wrapper: {
-    backgroundColor: greenColor,
+    backgroundColor: itemBackgroundColor,
     margin: 10,
     width: widthScreen * 0.29,
     height: widthScreen * 0.29,
@@ -22,10 +22,14 @@ export default StyleSheet.create({
   image: {
     height: '65%',
     width: '65%',
+    tintColor: greenColor,
+    opacity: 0.7,
   },
 
   text: {
     fontSize: 18,
     textAlign: 'center',
+    color: 'white',
+    fontWeight: '200',
   },
 });
