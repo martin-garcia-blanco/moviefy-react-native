@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import { blackColor } from '../../helpers/GlobalStyles';
 
 export default StyleSheet.create({
-  scrollView: {
+  wrapper: {
     backgroundColor: blackColor,
-    paddingTop: 10,
+    paddingBottom: 60,
   },
 });

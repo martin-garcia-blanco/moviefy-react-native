@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 import MovieList from '../../views/MovieList';
 import styles from './styles';
 import retrieveInitialMovies from '../../services/retrieve-initial-movies';
-import AppName from '../../views/AppName/AppName';
+import Header from '../../views/Header/Header';
 
 const Home = ({ navigation }) => {
   const [popularMovies, setPopularMovies] = useState();
@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <AppName />
+      <Header text="Moviefy" />
       <View styles={styles.list}>
         {popularMovies && (
           <MovieList navigation={navigation} list={popularMovies}></MovieList>

@@ -73,14 +73,22 @@ const MovieDetail = ({ navigation, route }) => {
                   color="yellow"
                   style={styles.ratingStar}
                 />
-                <Text style={styles.ratingText}>8.3</Text>
+                <Text style={styles.ratingText}>{movie.vote_average}</Text>
               </View>
             </View>
             <Text style={styles.overview}>{movie.overview}</Text>
           </View>
           <View style={styles.genres}>
             {movie.genres.map((genre) => (
-              <TouchableOpacity key={genre.id} style={styles.genreTouchable}>
+              <TouchableOpacity
+                key={genre.id}
+                style={styles.genreTouchable}
+                onPress={() =>
+                  navigation.push('GenreMovies', {
+                    genreId: genre.id,
+                    genreName: genre.name,
+                  })
+                }>
                 <Text style={styles.genreText}>{genre.name}</Text>
               </TouchableOpacity>
             ))}
@@ -98,16 +106,19 @@ const MovieDetail = ({ navigation, route }) => {
             navigation={navigation}
             list={movie.credits.cast}
           />
-          <View style={styles.subtitle}>
-            <Text style={styles.subtitleText}>Similar content</Text>
-          </View>
-          {similarMovies && (
-            <HorizontalSlider
-              sliderType="movies"
-              navigation={navigation}
-              list={similarMovies}
-            />
-          )}
+
+          {similarMovies.length ? (
+            <>
+              <View style={styles.subtitle}>
+                <Text style={styles.subtitleText}>Similar content</Text>
+              </View>
+              <HorizontalSlider
+                sliderType="movies"
+                navigation={navigation}
+                list={similarMovies}
+              />
+            </>
+          ) : null}
         </>
       ) : null}
     </ScrollView>

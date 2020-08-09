@@ -12,10 +12,7 @@ const SliderItem = ({ image, title, subtitle }) => {
         start={{ x: 0, y: 0.8 }}
         end={{ x: 0, y: 1 }}></LinearGradient>
       <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: `https://image.tmdb.org/t/p/original${image}` }}
-          style={styles.image}
-        />
+        <Image source={{ uri: image }} style={styles.image} />
       </View>
       <View style={styles.text}>
         <Text style={styles.title}>{title}</Text>
