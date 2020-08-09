@@ -7,12 +7,11 @@ import MovieItem from '../../views/MovieItem';
 import MovieList from '../../views/MovieList';
 import GenreMovies from '../GenreMovies';
 import Genres from '../Genres';
-import Home from '../Home';
 import styles from './styles';
 
 const Stack = createStackNavigator();
 
-const HomeNavigator = () => {
+const GenresNavigator = () => {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator
@@ -22,7 +21,11 @@ const HomeNavigator = () => {
           headerTintColor: 'white',
           cardStyle: { backgroundColor: blackColor },
         }}>
-        <Stack.Screen name="Home" component={Home} options={{ header: Home }} />
+        <Stack.Screen
+          name="Genres"
+          component={Genres}
+          options={{ header: Genres }}
+        />
         <Stack.Screen
           name="MovieDetail"
           component={MovieDetail}
@@ -40,4 +43,4 @@ const HomeNavigator = () => {
   );
 };
 
-export default HomeNavigator;
+export default GenresNavigator;
