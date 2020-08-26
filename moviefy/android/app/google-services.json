@@ -38,6 +38,13 @@
             {
               "client_id": "874180977947-soo8srevn1p1qm4i4g68nak43gth07n2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "874180977947-qtpqok96qd5sodiipd6engo6fsuornek.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.moviefy"
+              }
             }
           ]
         }
