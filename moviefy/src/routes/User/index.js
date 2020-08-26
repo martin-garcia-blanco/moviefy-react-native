@@ -1,42 +1,47 @@
-import React from 'react';
-import { Text, View, Button } from 'react-native';
-import  { loginWithGoogle } from '../../firebase/client'
-import { Google } from '@react-native-community/google-signin';
-import { GoogleSignin, GoogleSigninButton } from '@react-native-community/google-signin';
+import React, { useState, useEffect } from 'react';
+import { Text, View, Image, Button } from 'react-native';
+import { GoogleSigninButton } from '@react-native-community/google-signin';
+import { onGoogleButtonPress, onAuthStateChanged, googleLogOut } from '../../firebase/client'
 
-GoogleSignin.configure({
-  webClientId: '874180977947-qtpqok96qd5sodiipd6engo6fsuornek.apps.googleusercontent.com',
-});
 
 const User = () => {
 
-const handleClick = ()=>{}
+  const [user, setUser] = useState(undefined);
 
-async function onGoogleButtonPress() {
-  // Get the users ID token
-  const { idToken } = await GoogleSignin.signIn();
+  useEffect(() => {
+    onAuthStateChanged(setUser)
+  }, [])
 
-  // Create a Google credential with the token
-  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  const handleClick = () => {
+    onGoogleButtonPress(setUser)
+  }
 
-  // Sign-in the user with the credential
-  return auth().signInWithCredential(googleCredential);
-}
 
   return (
     <View>
       <Text>Login</Text>
-      <Button
-      title="Google Sign-In"
-      onPress={() => onGoogleButtonPress().then((a) => console.log('Signed in with Google!', a))}
-    />
-     <GoogleSigninButton
-    style={{ width: 192, height: 48 }}
-    size={GoogleSigninButton.Size.Wide}
-    color={GoogleSigninButton.Color.Dark}
-    onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
-    disabled={false} />
-      <Button onPress={handleClick} title='login with google'></Button>
+
+      {
+        user ? <View>
+          <Image
+            source={{
+              uri: user.avatar,
+            }}
+            style={{ flex: 1, width: 200, height: 200 }}
+          />
+          <Text>Usuario: {user.userName}</Text>
+          <Text>email: {user.email}</Text>
+          <Text>avatarUrl: {user.avatar}</Text>
+          <Button onPress={() => googleLogOut(setUser)} title='logOut' />
+        </View>
+          : <GoogleSigninButton
+            style={{ width: 192, height: 48 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={handleClick}
+            disabled={false} />
+      }
+
     </View>
   );
 };

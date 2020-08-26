@@ -1,4 +1,6 @@
 import * as firebase from 'firebase';
+import { Google } from '@react-native-community/google-signin';
+import { GoogleSignin, GoogleSigninButton } from '@react-native-community/google-signin';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCNJ2J5E4v-f5V_eLL_Xq4ebOMX1494exg",
@@ -16,12 +18,59 @@ const firebaseConfig = {
     ? firebase.initializeApp(firebaseConfig)
     : firebase.app();
 
-export const loginWithGoogle = () => {
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    return firebase.auth().useDeviceLanguage();
+
+GoogleSignin.configure({
+  webClientId: '874180977947-qtpqok96qd5sodiipd6engo6fsuornek.apps.googleusercontent.com',
+});
+
+const mapUserFromFirebaseAuthToUser = (user) => {
+    console.log('antes do erro', user)
+
+    const {displayName, email, photoURL}  = user
+
+    return {
+      avatar: photoURL,
+      userName: displayName,
+      email
+    }
+  }
+
+export const onAuthStateChanged = (onChange) => {
+    return firebase
+    .auth()
+    .onAuthStateChanged(user => {
+
+        const normalizedUser = mapUserFromFirebaseAuthToUser(user)
+
+        onChange(normalizedUser)
+    });
 }
 
-// export const loginWithGoogle = () => {
-//     const googleProvider = new firebase.auth.GoogleAuthProvider();
-//     return firebase.auth().signInWithPopup(googleProvider);
-// }
+
+export const onGoogleButtonPress = async (onChange) => {
+    try{
+
+        // Get the users ID token
+        const { idToken } = await GoogleSignin.signIn();
+
+
+        // Create a Google credential with the token
+        const googleCredential = firebase.auth.GoogleAuthProvider.credential(idToken);
+
+        // Sign-in the user with the credential
+        const a= await firebase.auth().signInWithCredential(googleCredential)
+        onChange(mapUserFromFirebaseAuthToUser(a));
+    } catch(e){
+        console.log(e)
+    }
+  }
+
+  export const googleLogOut = async (onChange) => {
+    try {
+        // await GoogleSignin.revokeAccess();
+        await GoogleSignin.signOut();
+        onChange(null)
+    } catch(e) {
+        console.log(e)
+    }
+}
