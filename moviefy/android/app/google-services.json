@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "874180977947",
+    "firebase_url": "https://moviefy-86f20.firebaseio.com",
+    "project_id": "moviefy-86f20",
+    "storage_bucket": "moviefy-86f20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874180977947:android:7607620126ddf16834dfbe",
+        "android_client_info": {
+          "package_name": "com.moviefy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874180977947-j5at5mf3h19jl86bib0dho66pf4il0fj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moviefy",
+            "certificate_hash": "c7f21e5ceb65f99f9d7c58c5b3672f8a0ca59b89"
+          }
+        },
+        {
+          "client_id": "874180977947-soo8srevn1p1qm4i4g68nak43gth07n2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk358NFNSOz0xc7pjegNZBkhnTpmMoJuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874180977947-soo8srevn1p1qm4i4g68nak43gth07n2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
