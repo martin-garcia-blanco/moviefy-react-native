@@ -9,7 +9,6 @@ target 'moviefy' do
   use_react_native!(:path => config["reactNativePath"])
 
 
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
   target 'moviefyTests' do
     inherit! :complete
