@@ -93,11 +93,11 @@ const MovieDetail = ({ navigation, route }) => {
               </TouchableOpacity>
             ))}
           </View>
-          <View style={styles.buttonContainer}>
+          {/* <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={() => {}}>
               <Text style={styles.buttonText}>Add to List</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
           <View style={styles.subtitle}>
             <Text style={styles.subtitleText}>Cast</Text>
           </View>

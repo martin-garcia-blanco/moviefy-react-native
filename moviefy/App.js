@@ -33,13 +33,13 @@ export default function App() {
                   return (
                     <ComunityIcon name="movie-roll" size={size} color={color} />
                   );
-                case 'Search':
-                  return (
-                    <OcticonIcon name="search" size={size} color={color} />
-                  );
+                // case 'Search':
+                //   return (
+                //     <OcticonIcon name="search" size={size} color={color} />
+                //   );
 
-                case 'You':
-                  return <FeatherIcon name="user" size={size} color={color} />;
+                // case 'You':
+                //   return <FeatherIcon name="user" size={size} color={color} />;
               }
             },
           })}
@@ -61,8 +61,8 @@ export default function App() {
           }}>
           <Tab.Screen name="Home" component={HomeNavigator} />
           <Tab.Screen name="Genres" component={GenresNavigator} />
-          <Tab.Screen name="Search" component={Search} />
-          <Tab.Screen name="You" component={User} />
+          {/* <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen name="You" component={User} /> */}
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>

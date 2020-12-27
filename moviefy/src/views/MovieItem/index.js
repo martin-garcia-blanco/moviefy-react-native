@@ -60,11 +60,11 @@ const MovieItem = ({ movie, navigation, size }) => {
         </View>
       </View>
 
-      <View style={styles.buttonContainer}>
+      {/* <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Add to List</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };
