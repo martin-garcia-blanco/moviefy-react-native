@@ -8,6 +8,8 @@ target 'moviefy' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
+
   target 'moviefyTests' do
     inherit! :complete
     # Pods for testing
