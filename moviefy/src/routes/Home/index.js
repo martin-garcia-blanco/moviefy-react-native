@@ -4,6 +4,7 @@ import MovieList from '../../views/MovieList';
 import styles from './styles';
 import retrieveInitialMovies from '../../services/retrieve-initial-movies';
 import Header from '../../views/Header/Header';
+import TMDB from '../../views/TMDB/TMDB';
 
 const Home = ({ navigation }) => {
   const [popularMovies, setPopularMovies] = useState();
@@ -26,6 +27,7 @@ const Home = ({ navigation }) => {
           <MovieList navigation={navigation} list={popularMovies}></MovieList>
         )}
       </View>
+      <TMDB />
     </ScrollView>
   );
 };
