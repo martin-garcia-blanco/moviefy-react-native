@@ -24,10 +24,9 @@ GoogleSignin.configure({
 });
 
 const mapUserFromFirebaseAuthToUser = (user) => {
-    console.log('antes do erro', user)
+    if(!user) return null
 
     const {displayName, email, photoURL}  = user
-
     return {
       avatar: photoURL,
       userName: displayName,
@@ -39,10 +38,8 @@ export const onAuthStateChanged = (onChange) => {
     return firebase
     .auth()
     .onAuthStateChanged(user => {
-
-        const normalizedUser = mapUserFromFirebaseAuthToUser(user)
-
-        onChange(normalizedUser)
+        console.log('debe ser null', user)
+        onChange( mapUserFromFirebaseAuthToUser(user))
     });
 }
 
@@ -59,6 +56,7 @@ export const onGoogleButtonPress = async (onChange) => {
 
         // Sign-in the user with the credential
         const a= await firebase.auth().signInWithCredential(googleCredential)
+        console.log('antes de normalizar',a)
         onChange(mapUserFromFirebaseAuthToUser(a));
     } catch(e){
         console.log(e)
