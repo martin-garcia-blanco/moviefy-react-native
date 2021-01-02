@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 export const blackColor = '#000000';
+export const whiteColor = '#FFFFFF';
 export const starYellow = '#f6c90e';
 export const greenColor = '#61d4b3';
 export const greyText = '#cccccc';
