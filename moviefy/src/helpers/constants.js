@@ -4,8 +4,10 @@ export const NETWORKS = [
   { name: 'Amazon', id: 1024 },
 ];
 
-export const PHOTO_BASE_URL_LOW_QUALITY = 'https://image.tmdb.org/t/p/w300/';
+export const PHOTO_BASE_URL_LOW_QUALITY = 'https://image.tmdb.org/t/p/w400/';
 export const PHOTO_BASE_URL_HIGH_QUALITY = 'https://image.tmdb.org/t/p/w500/';
+
+export const logoUrl = require('../../assets/icons/moviefy.png');
 
 export const genres = [
   {
