@@ -22,7 +22,11 @@ const HomeNavigator = () => {
           headerTintColor: 'white',
           cardStyle: { backgroundColor: blackColor },
         }}>
-        <Stack.Screen name="Home" component={Home} options={{ header: Home }} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="MovieDetail"
           component={MovieDetail}
