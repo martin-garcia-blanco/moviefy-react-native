@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ScrollView, View } from 'react-native';
-import MovieList from '../../views/MovieList';
-import styles from './styles';
-import retrieveInitialMovies from '../../services/retrieve-initial-movies';
+import useRetrieveInitialMovies from '../../hooks/useRetrieveInitialMovies';
+import Error from '../../views/Error/Error';
 import Header from '../../views/Header/Header';
+import MovieList from '../../views/MovieList';
+import PreHome from '../../views/PreHome/PreHome';
 import TMDB from '../../views/TMDB/TMDB';
+import styles from './styles';
 
 const Home = ({ navigation }) => {
-  const [popularMovies, setPopularMovies] = useState();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setPopularMovies(await retrieveInitialMovies());
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, [setPopularMovies]);
+  const [popularMovies, loading, error] = useRetrieveInitialMovies();
 
   return (
     <ScrollView style={styles.scrollView}>
-      <Header text="Moviefy" />
-      <View styles={styles.list}>
-        {popularMovies && (
-          <MovieList navigation={navigation} list={popularMovies}></MovieList>
-        )}
-      </View>
-      <TMDB />
+      {loading ? (
+        <PreHome />
+      ) : error ? (
+        <Error />
+      ) : (
+        <View>
+          <Header text="Moviefy" />
+          <View styles={styles.list}>
+            {popularMovies && (
+              <MovieList
+                navigation={navigation}
+                list={popularMovies}></MovieList>
+            )}
+          </View>
+          <TMDB />
+        </View>
+      )}
     </ScrollView>
   );
 };
