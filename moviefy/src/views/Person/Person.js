@@ -6,9 +6,17 @@ const sanitizeMovies = (movies) => {
   const crew = movies.crew;
   const cast = movies.cast.map((movie) => {
     movie.department = 'Acting';
+    movie.job = movie.character;
     return movie;
   });
-  return crew.concat(cast);
+  const movieList = crew.concat(cast);
+  movieList.forEach((movie) => {
+    movie.release_date = movie.release_date
+      ? movie.release_date.split('-')[0]
+      : '';
+    movie.release_date;
+  });
+  return movieList;
 };
 
 const filterMovies = (movies, department) => {
