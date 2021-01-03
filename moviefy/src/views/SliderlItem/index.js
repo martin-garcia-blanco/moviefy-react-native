@@ -3,9 +3,13 @@ import { TouchableOpacity, Text, Image, View } from 'react-native';
 import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 
-const SliderItem = ({ image, title, subtitle }) => {
+const SliderItem = ({ image, title, subtitle, id, navigation }) => {
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() =>
+        navigation.push('PersonDetail', { personId: id, name: title })
+      }>
       <LinearGradient
         colors={['transparent', 'rgba(0,0,0,1)']}
         style={styles.gradient}
