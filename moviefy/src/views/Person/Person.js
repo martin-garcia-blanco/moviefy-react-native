@@ -3014,14 +3014,19 @@ const Person = ({ navigation, route }) => {
               ))}
             </View>
             <View style={styles.movieList}>
-              {filterMovies(newMovies, department).map((e) => (
-                <View style={styles.departmentOption}>
+              {filterMovies(newMovies, department).map((e, index) => (
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.push('MovieDetail', { movieId: e.id })
+                  }
+                  key={index}
+                  style={styles.departmentOption}>
                   <Text style={[styles.text, styles.option20]}>
                     {e.release_date}
                   </Text>
                   <Text style={[styles.text, styles.option40]}>{e.title}</Text>
                   <Text style={[styles.text, styles.option20]}>{e.job}</Text>
-                </View>
+                </TouchableOpacity>
               ))}
             </View>
           </View>
