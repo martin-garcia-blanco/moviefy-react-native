@@ -10,6 +10,8 @@ const HorizontalSlider = ({ sliderType, navigation, list }) => {
       case 'cast':
         return (
           <SliderlItem
+            id={item.id}
+            navigation={navigation}
             image={item.profile_path}
             title={item.name}
             subtitle={item.character}

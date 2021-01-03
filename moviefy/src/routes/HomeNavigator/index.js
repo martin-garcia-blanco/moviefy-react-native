@@ -5,8 +5,8 @@ import { blackColor } from '../../helpers/GlobalStyles';
 import MovieDetail from '../../views/MovieDetail';
 import MovieItem from '../../views/MovieItem';
 import MovieList from '../../views/MovieList';
+import Person from '../../views/Person/Person';
 import GenreMovies from '../GenreMovies';
-import Genres from '../Genres';
 import Home from '../Home';
 import styles from './styles';
 
@@ -38,6 +38,11 @@ const HomeNavigator = () => {
           name="GenreMovies"
           component={GenreMovies}
           options={({ route }) => ({ title: route.params.genreName })}
+        />
+        <Stack.Screen
+          name="PersonDetail"
+          component={Person}
+          options={({ route }) => ({ title: route.params.name })}
         />
       </Stack.Navigator>
     </NavigationContainer>
